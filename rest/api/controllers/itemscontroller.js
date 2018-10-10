@@ -32,7 +32,7 @@ exports.add_an_item = function (req,res,next){
 
 // Method to update an element
 exports.update_an_item = function (req,res,next){
-  const id = req.params.productId;
+  const id = req.params.id;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
@@ -42,7 +42,8 @@ exports.update_an_item = function (req,res,next){
     .exec()
     .then(result => {
       res.status(200).json({
-        message: "Item updated"
+        message: "Item updated",
+        data:result
       });
     })
     .catch(err => {
@@ -56,7 +57,7 @@ exports.update_an_item = function (req,res,next){
 // Method to delete an item
 
 exports.delete_item= function(req,res,next){
-  const id = req.params.productId;
+  const id = req.params.id;
   Item.deleteOne({ _id: id })
     .exec()
     .then(result => {
