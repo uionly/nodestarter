@@ -54,4 +54,14 @@ URL : localhost:5000/item/:id
 
 Type: patch
 
+
+
 URL : localhost:5000/item/:id
+
+Req: 
+[{"propName":"name","value":"edited name value"},{"propName":"desc","value":"edited desvalue"}]
+
+res :
+{
+    "message": "Item updated"
+}

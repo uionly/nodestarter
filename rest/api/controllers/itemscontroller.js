@@ -37,6 +37,7 @@ exports.update_an_item = function (req,res,next){
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
+  console.log('option',updateOps);
   Item.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {

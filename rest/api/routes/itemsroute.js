@@ -9,6 +9,6 @@ const router = express.Router();
 router.post("/item",ItemsController.add_an_item);
 router.get("/items",ItemsController.get_items);
 router.delete("/item/:id",ItemsController.delete_item);
-router.patch("/item",ItemsController.update_an_item);
+router.patch("/item/:id",ItemsController.update_an_item);
 
 module.exports=router;
