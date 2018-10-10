@@ -1,14 +1,29 @@
-const item=require('../models/itemModel');
+const Item=require('../models/itemModel');
 const mongoose=require('mongoose');
+// Get all items
+exports.get_items= function(req,res,next){
+  Item.find().exec()
+  .then(response => {
+    //   if (docs.length >= 0) {
+    res.status(200).json(response);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err
+    });
+  });
+
+}
 // method to add an item
 exports.add_an_item = function (req,res,next){
-   const itemData=new item({
+   const ItemData=new Item({
     _id:new mongoose.Types.ObjectId(),
     name:req.body.name,
     desc:req.body.desc 
  }) ;
 
-   itemData.save().then((result)=>{
+   ItemData.save().then((result)=>{
      res.status(200).json(result);
    }).catch((err)=>{
     res.send(err);
@@ -22,7 +37,7 @@ exports.update_an_item = function (req,res,next){
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  itemData.update({ _id: id }, { $set: updateOps })
+  Item.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -41,7 +56,7 @@ exports.update_an_item = function (req,res,next){
 
 exports.delete_item= function(req,res,next){
   const id = req.params.productId;
-  itemData.remove({ _id: id })
+  Item.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json({
