@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+ul.table-slot li {
+  list-style: none;
+}
+ul.table-slot li button {
+  min-width: 100px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: #ffffff;
+  background: #282c34;
+  display: inline-block;
+  margin: 5px;
+}

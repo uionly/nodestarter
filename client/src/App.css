@@ -30,3 +30,16 @@
     transform: rotate(360deg);
   }
 }
+
+.form {
+  position: relative;
+  top: 100px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid;
+}
+
+.form div {
+  margin: 10px;
+  text-align: left;
+}
