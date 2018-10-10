@@ -38,7 +38,7 @@ exports.update_an_item = function (req,res,next){
     updateOps[ops.propName] = ops.value;
   }
   console.log('option',updateOps);
-  Item.update({ _id: id }, { $set: updateOps })
+  Item.updateOne({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       res.status(200).json({
