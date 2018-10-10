@@ -56,7 +56,7 @@ exports.update_an_item = function (req,res,next){
 
 exports.delete_item= function(req,res,next){
   const id = req.params.productId;
-  Item.remove({ _id: id })
+  Item.deleteOne({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json({
